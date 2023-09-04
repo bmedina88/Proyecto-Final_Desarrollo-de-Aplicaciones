@@ -36,7 +36,6 @@ class MainActivityTest {
 
     @Before
     fun setup() {
-        // Configura un contexto simulado utilizando ApplicationProvider
         context = ApplicationProvider.getApplicationContext()
     }
 
@@ -53,6 +52,66 @@ class MainActivityTest {
         ).check(
             ViewAssertions.matches(
                 ViewMatchers.withText(context.getString(R.string.comparacion_nula))
+            )
+        )
+    }
+
+    @Test
+    fun mainActivity_compararTextosIguales(){
+        Espresso.onView(
+            ViewMatchers.withId(R.id.text1)
+        ).perform(
+            ViewActions.typeText("Texto igual"),
+            ViewActions.closeSoftKeyboard()
+        )
+        Espresso.onView(
+            ViewMatchers.withId(R.id.text2)
+        ).perform(
+            ViewActions.typeText("Texto igual"),
+            ViewActions.closeSoftKeyboard()
+        )
+
+
+        Espresso.onView(
+            ViewMatchers.withId(R.id.botoncomparar)
+        ).perform(
+            ViewActions.click()
+        )
+        Espresso.onView(
+            ViewMatchers.withId(R.id.resultado)
+        ).check(
+            ViewAssertions.matches(
+                ViewMatchers.withText(context.getString(R.string.comparacion_igual))
+            )
+        )
+    }
+
+    @Test
+    fun mainActivity_compararTextosDistintos(){
+        Espresso.onView(
+            ViewMatchers.withId(R.id.text1)
+        ).perform(
+            ViewActions.typeText("Texto igual"),
+            ViewActions.closeSoftKeyboard()
+        )
+        Espresso.onView(
+            ViewMatchers.withId(R.id.text2)
+        ).perform(
+            ViewActions.typeText("Texto distinto"),
+            ViewActions.closeSoftKeyboard()
+        )
+
+
+        Espresso.onView(
+            ViewMatchers.withId(R.id.botoncomparar)
+        ).perform(
+            ViewActions.click()
+        )
+        Espresso.onView(
+            ViewMatchers.withId(R.id.resultado)
+        ).check(
+            ViewAssertions.matches(
+                ViewMatchers.withText(context.getString(R.string.comparacion_distinta))
             )
         )
     }
