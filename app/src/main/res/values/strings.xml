@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ProyectoFinal</string>
+    <string name="comparacion_nula">Por favor ingrese dos valores/textos no nulos</string>
+    <string name="comparacion_igual">El primer texto y el segundo texto son iguales</string>
+    <string name="comparacion_distinta">El primer texto y el segundo texto son distintos</string>
+    <string name="compare_title">Comparador de Textos</string>
+    <string name="compare_description">Por favor, ingrese dos palabras o textos para comparar.</string>
+    <string name="hint_first">Primer texto</string>
+    <string name="hint_second">Segundo texto</string>
+    <string name="compare_button">Comparar</string>
+</resources>
